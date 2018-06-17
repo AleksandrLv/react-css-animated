@@ -1,12 +1,32 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import ExampleComponent from 'react-css-animated'
+import Animated from 'react-css-animated';
 
 export default class App extends Component {
+  state = {
+    isVisible: true,
+  };
+
+  handleVisibleChange = (e) => {
+    const isVisible = e.target.checked;
+
+    this.setState({ isVisible });
+  };
+
   render () {
+    const { isVisible } = this.state;
+
     return (
       <div>
-        <ExampleComponent text='Modern React component module' />
+        <input
+          type="checkbox"
+          onChange={this.handleVisibleChange}
+        />
+        <Animated
+          isVisible={isVisible}
+        >
+          <h1>Text</h1>
+        </Animated>
       </div>
     )
   }

@@ -18,6 +18,7 @@
     "deploy": "gh-pages -d example/build"
   },
   "dependencies": {
+    "animate.css": "^3.6.1",
     "classnames": "^2.2.6"
   },
   "peerDependencies": {

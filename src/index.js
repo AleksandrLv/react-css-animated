@@ -1,13 +1,14 @@
 import React, { PureComponent } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
+import animateCSS from 'animate.css';
 
 import { timeShape, easingShape } from './propTypes';
-import styles from './styles.css';
 
 class Animated extends PureComponent {
   constructor(props) {
     super(props);
+    this.styles = animateCSS;
     this.state = props.animateOnMount ? (
       this.getAnimatedState(props)
     ) : {};
@@ -61,7 +62,7 @@ class Animated extends PureComponent {
 
     return (
       <div
-        className={classnames(className, styles.animated, styles[animation])}
+        className={classnames(className, this.styles.animated, this.styles[animation])}
         ref={innerRef}
         style={{
           animationDelay: `${delay}ms`,

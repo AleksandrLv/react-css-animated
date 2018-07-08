@@ -3,3 +3,16 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.demo {
+  width: 100%;
+  display: flex;
+}
+
+.controls {
+  width: 25%;
+}
+
+.example {
+  width: 75%;
+}

@@ -1,0 +1,15 @@
+@keyframes rotateOutLeft {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(90deg);
+    visibility: hidden;
+  }
+}
+
+.rotateOutLeft {
+  transform-origin: left;
+  animation-name: rotateOutLeft;
+}

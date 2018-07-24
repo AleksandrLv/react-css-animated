@@ -1,0 +1,15 @@
+@keyframes rotateOutUp {
+  from {
+    transform: rotateX(0deg);
+  }
+
+  to {
+    transform: rotateX(90deg);
+    visibility: hidden;
+  }
+}
+
+.rotateOutUp {
+  transform-origin: top;
+  animation-name: rotateOutUp;
+}

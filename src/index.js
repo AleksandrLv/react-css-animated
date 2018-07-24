@@ -5,10 +5,12 @@ import animateCSS from 'animate.css';
 
 import { timeShape, easingShape } from './propTypes';
 
+import animations from './animations/index.css';
+
 class Animated extends PureComponent {
   constructor(props) {
     super(props);
-    this.styles = animateCSS;
+    this.styles = { ...animateCSS, ...animations };
     this.state = props.animateOnMount ? (
       this.getAnimatedState(props)
     ) : {};

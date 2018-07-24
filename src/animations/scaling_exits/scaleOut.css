@@ -1,0 +1,14 @@
+@keyframes scaleOut {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    visibility: hidden;
+    transform: scale(0);
+  }
+}
+
+.scaleOut {
+  animation-name: scaleOut;
+}

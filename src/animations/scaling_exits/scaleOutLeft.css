@@ -1,0 +1,15 @@
+@keyframes scaleOutLeft {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    visibility: hidden;
+    transform: scaleX(0);
+  }
+}
+
+.scaleOutLeft {
+  transform-origin: left;
+  animation-name: scaleOutLeft;
+}

@@ -1,0 +1,15 @@
+@keyframes rotateInRight {
+  from {
+    transform: rotateY(90deg);
+    visibility: visible;
+  }
+
+  to {
+    transform: rotateY(0deg);
+  }
+}
+
+.rotateInRight {
+  transform-origin: right;
+  animation-name: rotateInRight;
+}

@@ -1,0 +1,15 @@
+@keyframes scaleInLeft {
+  from {
+    transform: scaleX(0);
+    visibility: visible;
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.scaleInLeft {
+  transform-origin: left;
+  animation-name: scaleInLeft;
+}

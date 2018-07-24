@@ -6,6 +6,7 @@ const animationsIn = [
       'fadeInDown',
       'fadeInDownBig',
       'fadeInLeft',
+      'fadeInLeftSmall',
       'fadeInLeftBig',
       'fadeInRight',
       'fadeInRightBig',

@@ -8,7 +8,7 @@ import { timeShape, easingShape } from './propTypes';
 class Animated extends PureComponent {
   constructor(props) {
     super(props);
-    this.styles = animateCSS;
+    this.styles = { ...animateCSS, ...props.animations };
     this.state = props.animateOnMount ? (
       this.getAnimatedState(props)
     ) : {};
@@ -84,6 +84,7 @@ Animated.propTypes = {
   innerRef: PropTypes.func,
   style: PropTypes.object,
   isVisible: PropTypes.bool,
+  animations: PropTypes.object,
   animationIn: PropTypes.string,
   animationOut: PropTypes.string,
   delay: timeShape,
@@ -96,6 +97,7 @@ Animated.propTypes = {
 
 Animated.defaultProps = {
   style: {},
+  animations: {},
   isVisible: true,
   animationIn: 'fadeIn',
   animationOut: 'fadeOut',

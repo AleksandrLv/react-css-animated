@@ -5,7 +5,7 @@ import animateCSS from 'animate.css';
 
 import { timeShape, easingShape } from './propTypes';
 
-import animations from './animations/index.css';
+import animations from './animations/index.scss';
 
 class Animated extends PureComponent {
   constructor(props) {

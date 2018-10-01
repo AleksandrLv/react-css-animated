@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Animated from 'react-css-animated';
 
 import { animationsIn, animationsOut } from './animations';
-import animations from './animations.css';
 import Select from './Select';
 
 export default class App extends Component {
@@ -59,7 +58,6 @@ export default class App extends Component {
 
         <div className='example'>
           <Animated
-            animations={animations}
             animationIn={animationIn}
             animationOut={animationOut}
             isVisible={isVisible}

@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 import animateCSS from 'animate.css';
 
 import { timeShape, easingShape } from './propTypes';
+import animations from './animations/index.scss';
 
 class Animated extends PureComponent {
   constructor(props) {
     super(props);
-    this.styles = { ...animateCSS, ...props.animations };
+    this.styles = { ...animateCSS, ...animations, ...props.animations };
     this.state = props.animateOnMount ? (
       this.getAnimatedState(props)
     ) : {};

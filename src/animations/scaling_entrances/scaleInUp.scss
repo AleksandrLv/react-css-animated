@@ -1,0 +1,15 @@
+@keyframes scaleInUp {
+  from {
+    transform: scaleY(0);
+    visibility: visible;
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.scaleInUp {
+  transform-origin: top;
+  animation-name: scaleInUp;
+}

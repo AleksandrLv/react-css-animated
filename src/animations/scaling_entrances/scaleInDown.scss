@@ -1,0 +1,15 @@
+@keyframes scaleInDown {
+  from {
+    transform: scaleY(0);
+    visibility: visible;
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.scaleInDown {
+  transform-origin: bottom;
+  animation-name: scaleInDown;
+}

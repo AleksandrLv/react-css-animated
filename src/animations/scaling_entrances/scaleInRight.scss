@@ -1,0 +1,15 @@
+@keyframes scaleInRight {
+  from {
+    transform: scaleX(0);
+    visibility: visible;
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.scaleInRight {
+  transform-origin: right;
+  animation-name: scaleInRight;
+}

@@ -1,0 +1,13 @@
+@keyframes heightOut {
+  from {
+    height: 100%;
+  }
+
+  to {
+    height: 0;
+  }
+}
+
+.heightOut {
+  animation-name: heightOut;
+}

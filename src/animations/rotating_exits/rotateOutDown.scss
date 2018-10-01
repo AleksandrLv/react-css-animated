@@ -1,0 +1,15 @@
+@keyframes rotateOutDown {
+  from {
+    transform: rotateX(0deg);
+  }
+
+  to {
+    transform: rotateX(90deg);
+    visibility: hidden;
+  }
+}
+
+.rotateOutDown {
+  transform-origin: bottom;
+  animation-name: rotateOutDown;
+}

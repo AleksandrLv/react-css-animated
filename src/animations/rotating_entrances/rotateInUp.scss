@@ -1,0 +1,15 @@
+@keyframes rotateInUp {
+  from {
+    transform: rotateX(90deg);
+    visibility: visible;
+  }
+
+  to {
+    transform: rotateX(0deg);
+  }
+}
+
+.rotateInUp {
+  transform-origin: top;
+  animation-name: rotateInUp;
+}

@@ -1,0 +1,13 @@
+@keyframes widthOut {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 0;
+  }
+}
+
+.widthOut {
+  animation-name: widthOut;
+}

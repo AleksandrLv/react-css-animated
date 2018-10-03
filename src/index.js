@@ -37,9 +37,9 @@ class Animated extends PureComponent {
 
     return {
       animation: isVisible ? animationIn : animationOut,
-      delay: delay instanceof Object ? delay[type] : delay,
-      easing: easing instanceof Object ? easing[type] : easing,
-      duration: duration instanceof Object ? duration[type] : duration,
+      delay: delay[type] ? delay[type] : delay,
+      easing: easing[type] ? easing[type] : easing,
+      duration: duration[type] ? duration[type] : duration,
     };
   };
 

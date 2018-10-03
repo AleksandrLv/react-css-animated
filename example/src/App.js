@@ -29,25 +29,31 @@ export default class App extends Component {
     return (
       <div className='demo'>
         <div className='controls'>
-          <label>Enter animation</label>
-          <Select
-            animations={animationsIn}
-            selected={animationIn}
-            onChange={this.handleAnimationInChange}
-          />
+          <div>
+            <label>Enter animation</label>
+            <Select
+              animations={animationsIn}
+              selected={animationIn}
+              onChange={this.handleAnimationInChange}
+            />
+          </div>
 
-          <label>Exit animation</label>
-          <Select
-            animations={animationsOut}
-            selected={animationOut}
-            onChange={this.handleAnimationOutChange}
-          />
+          <div>
+            <label>Exit animation</label>
+            <Select
+              animations={animationsOut}
+              selected={animationOut}
+              onChange={this.handleAnimationOutChange}
+            />
+          </div>
 
-          <label>Enter/Exit component</label>
-          <input
-            type="checkbox"
-            onChange={this.handleVisibleChange}
-          />
+          <div>
+            <label>Enter/Exit component</label>
+            <input
+              type="checkbox"
+              onChange={this.handleVisibleChange}
+            />
+          </div>
         </div>
 
         <div className='example'>

@@ -1,0 +1,15 @@
+@keyframes rotateInLeft {
+  from {
+    transform: rotateY(90deg);
+    visibility: visible;
+  }
+
+  to {
+    transform: rotateY(0deg);
+  }
+}
+
+.rotateInLeft {
+  transform-origin: left;
+  animation-name: rotateInLeft;
+}

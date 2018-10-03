@@ -1,0 +1,15 @@
+@keyframes scaleOutUp {
+  from {
+    transform: scaleY(1);
+  }
+
+  to {
+    visibility: hidden;
+    transform: scaleY(0);
+  }
+}
+
+.scaleOutUp {
+  transform-origin: top;
+  animation-name: scaleOutUp;
+}

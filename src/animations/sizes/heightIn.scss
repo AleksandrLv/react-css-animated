@@ -1,0 +1,13 @@
+@keyframes heightIn {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 100%;
+  }
+}
+
+.heightIn {
+  animation-name: heightIn;
+}

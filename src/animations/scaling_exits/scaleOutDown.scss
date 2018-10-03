@@ -1,0 +1,15 @@
+@keyframes scaleOutDown {
+  from {
+    transform: scaleY(1);
+  }
+
+  to {
+    visibility: hidden;
+    transform: scaleY(0);
+  }
+}
+
+.scaleOutDown {
+  transform-origin: bottom;
+  animation-name: scaleOutDown;
+}

@@ -1,0 +1,15 @@
+@keyframes scaleOutRight {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    visibility: hidden;
+    transform: scaleX(0);
+  }
+}
+
+.scaleOutRight {
+  transform-origin: right;
+  animation-name: scaleOutRight;
+}

@@ -45,6 +45,7 @@ class Animated extends PureComponent {
 
   render() {
     const {
+      tag,
       style,
       className,
       children,
@@ -60,10 +61,12 @@ class Animated extends PureComponent {
       animation,
     } = this.state;
 
+    const Tag = tag;
+
     style.opacity = animation ? null : Number(isVisible);
 
     return (
-      <div
+      <Tag
         className={classnames(className, this.styles.animated, this.styles[animation])}
         ref={innerRef}
         style={{
@@ -76,7 +79,7 @@ class Animated extends PureComponent {
         onClick={onClick}
       >
         {children}
-      </div>
+      </Tag>
     );
   }
 }
@@ -85,6 +88,7 @@ class Animated extends PureComponent {
 Animated.propTypes = {
   className: PropTypes.string,
   innerRef: PropTypes.func,
+  tag: PropTypes.string,
   style: PropTypes.object,
   isVisible: PropTypes.bool,
   animations: PropTypes.object,
@@ -100,6 +104,7 @@ Animated.propTypes = {
 /* eslint-enable */
 
 Animated.defaultProps = {
+  tag: 'div',
   style: {},
   animations: {},
   isVisible: true,

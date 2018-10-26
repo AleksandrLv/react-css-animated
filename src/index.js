@@ -43,6 +43,12 @@ class Animated extends PureComponent {
     };
   };
 
+  handleClick = () => {
+    const { data, onClick } = this.props;
+
+    if (onClick) onClick(data);
+  };
+
   render() {
     const {
       tag,
@@ -51,7 +57,6 @@ class Animated extends PureComponent {
       children,
       innerRef,
       isVisible,
-      onClick,
     } = this.props;
 
     const {
@@ -76,7 +81,7 @@ class Animated extends PureComponent {
           pointerEvents: isVisible ? 'all' : 'none',
           ...style,
         }}
-        onClick={onClick}
+        onClick={this.handleClick}
       >
         {children}
       </Tag>
@@ -99,6 +104,7 @@ Animated.propTypes = {
   easing: easingShape,
   animateOnMount: PropTypes.bool,
   children: PropTypes.any,
+  data: PropTypes.any,
   onClick: PropTypes.func,
 };
 /* eslint-enable */

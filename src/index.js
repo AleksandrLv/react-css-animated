@@ -21,14 +21,6 @@ class Animated extends PureComponent {
     return isVisible === prevState.isVisible ? null : { ...prevState, isVisible };
   }
 
-  componentDidUpdate({ isVisible: isVisiblePrev }) {
-    const { isVisible } = this.props;
-
-    if (isVisible !== isVisiblePrev) {
-      this.setState(this.getAnimatedState(this.props));
-    }
-  }
-
   getAnimatedState = (props) => {
     const {
       isVisible,

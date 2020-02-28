@@ -6,12 +6,32 @@ import animateCSS from 'animate.css';
 import { timeShape, easingShape } from './propTypes';
 import animations from './animations/index.scss';
 
+const getAnimatedState = (props) => {
+  const {
+    isVisible,
+    animationIn,
+    animationOut,
+    duration,
+    easing,
+    delay,
+  } = props;
+
+  const type = isVisible ? 'in' : 'out';
+
+  return {
+    animation: isVisible ? animationIn : animationOut,
+    delay: delay[type] === 0 || delay[type] ? delay[type] : delay,
+    easing: easing[type] ? easing[type] : easing,
+    duration: duration[type] === 0 || duration[type] ? duration[type] : duration,
+  };
+};
+
 class Animated extends PureComponent {
   constructor(props) {
     super(props);
     this.styles = { ...animateCSS, ...animations, ...props.animations };
     this.state = props.animateOnMount ? (
-      this.getAnimatedState(props)
+      getAnimatedState(props)
     ) : {};
   }
 
@@ -20,33 +40,14 @@ class Animated extends PureComponent {
 
     if (isVisible !== prevState.isVisible) {
       return {
-        ...this.getAnimatedState(nextProps),
+        ...prevState,
+        ...getAnimatedState(nextProps),
         isVisible,
       }
     } else {
       return null;
     }
   }
-
-  getAnimatedState = (props) => {
-    const {
-      isVisible,
-      animationIn,
-      animationOut,
-      duration,
-      easing,
-      delay,
-    } = props;
-
-    const type = isVisible ? 'in' : 'out';
-
-    return {
-      animation: isVisible ? animationIn : animationOut,
-      delay: delay[type] === 0 || delay[type] ? delay[type] : delay,
-      easing: easing[type] ? easing[type] : easing,
-      duration: duration[type] === 0 || duration[type] ? duration[type] : duration,
-    };
-  };
 
   handleClick = () => {
     const { data, onClick } = this.props;

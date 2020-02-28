@@ -18,7 +18,14 @@ class Animated extends PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
     const { isVisible } = nextProps;
 
-    return isVisible === prevState.isVisible ? null : { ...prevState, isVisible };
+    if (isVisible !== prevState.isVisible) {
+      return {
+        ...this.getAnimatedState(nextProps),
+        isVisible,
+      }
+    } else {
+      return null;
+    }
   }
 
   getAnimatedState = (props) => {

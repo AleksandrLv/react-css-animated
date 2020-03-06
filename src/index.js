@@ -98,7 +98,7 @@ class Animated extends PureComponent {
 
 Animated.propTypes = {
   className: PropTypes.string,
-  innerRef: PropTypes.func,
+  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   tag: PropTypes.string,
   style: PropTypes.object,
   isVisible: PropTypes.bool,

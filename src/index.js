@@ -6,42 +6,49 @@ import animateCSS from 'animate.css';
 import { timeShape, easingShape } from './propTypes';
 import animations from './animations/index.scss';
 
+const getAnimatedState = (props) => {
+  const {
+    isVisible,
+    animationIn,
+    animationOut,
+    duration,
+    easing,
+    delay,
+  } = props;
+
+  const type = isVisible ? 'in' : 'out';
+
+  return {
+    isVisible,
+    animation: isVisible ? animationIn : animationOut,
+    delay: delay[type] === 0 || delay[type] ? delay[type] : delay,
+    easing: easing[type] ? easing[type] : easing,
+    duration: duration[type] === 0 || duration[type] ? duration[type] : duration,
+  };
+};
+
 class Animated extends PureComponent {
   constructor(props) {
     super(props);
     this.styles = { ...animateCSS, ...animations, ...props.animations };
     this.state = props.animateOnMount ? (
-      this.getAnimatedState(props)
-    ) : {};
+      getAnimatedState(props)
+    ) : ({
+      isVisible: props.isVisible,
+    });
   }
 
-  componentWillReceiveProps(nextProps) {
+  static getDerivedStateFromProps(nextProps, prevState) {
     const { isVisible } = nextProps;
 
-    if (isVisible !== this.props.isVisible) {
-      this.setState(this.getAnimatedState(nextProps));
+    if (prevState.isVisible === undefined) return null;
+
+    if (isVisible !== prevState.isVisible) {
+      return getAnimatedState(nextProps);
     }
+
+    return null;
   }
-
-  getAnimatedState = (props) => {
-    const {
-      isVisible,
-      animationIn,
-      animationOut,
-      duration,
-      easing,
-      delay,
-    } = props;
-
-    const type = isVisible ? 'in' : 'out';
-
-    return {
-      animation: isVisible ? animationIn : animationOut,
-      delay: delay[type] === 0 || delay[type] ? delay[type] : delay,
-      easing: easing[type] ? easing[type] : easing,
-      duration: duration[type] === 0 || duration[type] ? duration[type] : duration,
-    };
-  };
 
   handleClick = () => {
     const { data, onClick } = this.props;
@@ -56,7 +63,6 @@ class Animated extends PureComponent {
       className,
       children,
       innerRef,
-      isVisible,
     } = this.props;
 
     const {
@@ -64,6 +70,7 @@ class Animated extends PureComponent {
       easing,
       duration,
       animation,
+      isVisible,
     } = this.state;
 
     const Tag = tag;
@@ -89,7 +96,6 @@ class Animated extends PureComponent {
   }
 }
 
-/* eslint-disable react/no-unused-prop-types */
 Animated.propTypes = {
   className: PropTypes.string,
   innerRef: PropTypes.func,
@@ -97,17 +103,19 @@ Animated.propTypes = {
   style: PropTypes.object,
   isVisible: PropTypes.bool,
   animations: PropTypes.object,
+  /* eslint-disable react/no-unused-prop-types */
+  /* These props are used in an external function getAnimatedState */
   animationIn: PropTypes.string,
   animationOut: PropTypes.string,
   delay: timeShape,
   duration: timeShape,
   easing: easingShape,
+  /* eslint-enable */
   animateOnMount: PropTypes.bool,
   children: PropTypes.any,
   data: PropTypes.any,
   onClick: PropTypes.func,
 };
-/* eslint-enable */
 
 Animated.defaultProps = {
   tag: 'div',

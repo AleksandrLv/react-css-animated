@@ -22,6 +22,9 @@
     "react/jsx-boolean-value": 0,
 
     // allow imports mixed with non-import statements at top of file
-    "import/first": 0
+    "import/first": 0,
+
+    "comma-dangle": ["error", "only-multiline"],
+    "semi": ["error", "always"]
   }
 }

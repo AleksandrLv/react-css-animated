@@ -63,6 +63,7 @@ class Animated extends PureComponent {
       className,
       children,
       innerRef,
+      renderContent,
     } = this.props;
 
     const {
@@ -90,7 +91,7 @@ class Animated extends PureComponent {
         }}
         onClick={this.handleClick}
       >
-        {children}
+        {renderContent ? renderContent() : children}
       </Tag>
     );
   }
@@ -112,7 +113,13 @@ Animated.propTypes = {
   easing: easingShape,
   /* eslint-enable */
   animateOnMount: PropTypes.bool,
-  children: PropTypes.any,
+  children: PropTypes.node,
+  /*
+    renderContent description:
+    Elements always come new, so there is a reason to rerender.
+    To avoid rerender use the function renderContent instead children.
+  */
+  renderContent: PropTypes.func,
   data: PropTypes.any,
   onClick: PropTypes.func,
 };

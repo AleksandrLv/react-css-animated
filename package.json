@@ -20,7 +20,7 @@
   "dependencies": {
     "animate.css": "^3.6.1",
     "classnames": "^2.2.6",
-    "node-sass": "^4.9.3"
+    "node-sass": "^7.0.0"
   },
   "peerDependencies": {
     "prop-types": "^15.5.4",
